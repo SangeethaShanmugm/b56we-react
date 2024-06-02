@@ -1,0 +1,29 @@
+
+//jsx => extended XML
+//class => reserved keyword
+//{} =>  template syntax
+//custom component
+//First letter must be capital
+//should return JSX
+
+ {/* {people.map(
+        (person) => (
+          <DisplayName name={person} />
+        )
+        // console.log(person);
+      )} */}
+
+
+{/* <Welcome name="Abhishek" age="20" />
+      <Welcome name="Bala" age="20" /> */}
+
+
+
+
+hooks => function 
+
+useState => destructure
+
+const [state, setState] = useState(initialValue)
+state => current state
+setState => function 

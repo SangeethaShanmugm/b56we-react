@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Welcome } from "./Welcome";
+import { useState } from "react"
+export default function App() {
+  //JS starts
 
-function App() {
+  const people = ["Abhishek", "Bala", "Deva", "Harish"];
+
+  const users = [
+    {
+      name: "Abhishek",
+      age: "20",
+      pic: "https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg",
+    },
+    {
+      name: "Bala",
+      age: "20",
+      pic: "https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg",
+    },
+    {
+      name: "Deva",
+      age: "20",
+      pic: "https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg",
+    },
+  ];
+  //JS ends
+  //JSX starts
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Counter />
+      {/* {users.map((usr) => (
+        <Welcome name={usr.name} age={usr.age} pic={usr.pic} />
+      ))} */}
     </div>
   );
+  //JSX ends
 }
 
-export default App;
+
+function Counter() {
+  // let like = 10
+  const [like, setLike] = useState(0)
+  console.log("Like updated", like)
+
+  return (
+    <div>
+      <button onClick={() => {
+        setLike(like + 1)
+        console.log(like)
+      }}>👍 {like}</button>
+
+    </div>
+  )
+}
