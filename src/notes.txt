@@ -27,3 +27,8 @@ useState => destructure
 const [state, setState] = useState(initialValue)
 state => current state
 setState => function 
+
+  <Counter />
+      {/* {users.map((usr) => (
+        <Welcome name={usr.name} age={usr.age} pic={usr.pic} />
+      ))} */}
