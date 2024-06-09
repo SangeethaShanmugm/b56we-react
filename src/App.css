@@ -14,7 +14,7 @@
 .restaurant-poster {
   width: 200px;
   height: 230px;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .restaurant-name {
