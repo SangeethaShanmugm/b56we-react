@@ -26,3 +26,9 @@
   justify-content: space-around;
   align-items: center;
 }
+
+.add-restaurant-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

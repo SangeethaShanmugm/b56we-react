@@ -32,3 +32,24 @@ setState => function
       {/* {users.map((usr) => (
         <Welcome name={usr.name} age={usr.age} pic={usr.pic} />
       ))} */}
+
+
+ const people = ["Abhishek", "Bala", "Deva", "Harish"];
+
+  const users = [
+    {
+      name: "Abhishek",
+      age: "20",
+      pic: "https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg",
+    },
+    {
+      name: "Bala",
+      age: "20",
+      pic: "https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg",
+    },
+    {
+      name: "Deva",
+      age: "20",
+      pic: "https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg",
+    },
+  ];     
