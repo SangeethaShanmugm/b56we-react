@@ -24,7 +24,9 @@ export function Restaurant({ restaurantData }) {
 
       <button onClick={() => setShow(!show)}>Toggle description</button>
 
-      <p style={AddressStyle}>Address - {restaurantData.address}</p>
+      {/* <p style={AddressStyle}>Address - {restaurantData.address}</p> */}
+      {show ? <p>Address - {restaurantData.address}</p> : ""}
+
       <p style={styles}>Rating: ⭐{restaurantData.average_rating} {restaurantData.rating_text}</p>
       <div className="style-card">
         <p>Cost: Rs {restaurantData.cost}/-</p>

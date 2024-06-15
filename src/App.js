@@ -31,10 +31,11 @@ export default function App() {
   //JSX starts
   return (
     <div className="App">
+{/* Add restaurant */}
 
       <div className="restaurant-list">
-        {restaurantData.map((rest_data) => (
-          <Restaurant restaurantData={rest_data} />
+        {restaurantData.map((rest_data, index) => (
+          <Restaurant key={index} restaurantData={rest_data} />
         ))}
       </div>
 
