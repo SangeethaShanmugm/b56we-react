@@ -1,61 +1,39 @@
 import "./App.css";
-import { useState } from "react"
 import { Welcome } from "./Welcome";
-import INITIAL_RESTAURANT_DATA from "./Data/restaurant.json"
 import { AddColor } from "./component/AddColor";
-import { Restaurant } from "./component/Restaurant"
+import { Routes, Route, Link, useParams } from "react-router-dom";
+import { RestaurantList } from "./component/RestaurantList";
+import { Home } from "./component/Home";
 export default function App() {
   //JS starts
-  const [restaurantData, setRestaurantData] = useState(INITIAL_RESTAURANT_DATA)
-  console.log(restaurantData)
-
-  const [name, setName] = useState("Empire")
-  const [poster, setPoster] = useState("https://b.zmtcdn.com/data/pictures/7/55397/fb83f44f6bbbdd08809b95f8fb6bdb98.jpg")
-  const [address, setAddress] = useState("2")
-  const [rating, setRating] = useState("3")
-  const [rating_text, setRating_Text] = useState("4")
-  const [cost, setCost] = useState("5")
 
   return (
     <div className="App">
-      {/* Add restaurant */}
-      <div className="add-restaurant-form">
-        <input type="text" value={name}
-          onChange={(event) => setName(event.target.value)} />
-        <input type="text" value={poster}
-          onChange={(event) => setPoster(event.target.value)} />
-        <input type="text" value={address}
-          onChange={(event) => setAddress(event.target.value)} />
-        <input type="text" value={rating}
-          onChange={(event) => setRating(event.target.value)} />
-        <input type="text" value={rating_text}
-          onChange={(event) => setRating_Text(event.target.value)} />
-        <input type="text" value={cost}
-          onChange={(event) => setCost(event.target.value)} />
-        {/* copy restaurantData and new restaurant */}
-        <button onClick={() => {
-          const newRestaurant = {
-            name,
-            poster,
-            address,
-            rating,
-            rating_text,
-            cost
-          }
-          setRestaurantData([...restaurantData, newRestaurant])
-        }
+      <nav>
+        <ul>
+          {/* Link changes page without refresh */}
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/restaurantList">RestaurantList</Link></li>
+          <li><Link to="/add-color">Add Color</Link></li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/restaurantList" element={<RestaurantList />} />
+        <Route path="/restaurantList/:restaurantid" element={<RestaurantDetail />} />
 
-        }>Add Restaurant</button>
-      </div>
-      <div className="restaurant-list">
-        {restaurantData.map((rest_data, index) => (
-          <Restaurant key={index} restaurantData={rest_data} />
-        ))}
-      </div>
 
+        <Route path="/add-color" element={<AddColor />} />
+      </Routes>
     </div>
   );
   //JSX ends
 }
 
 
+function RestaurantDetail() {
+  const { restaurantid } = useParams()
+  return (
+    <div><h1>RestaurantDetail Page - {restaurantid}</h1></div>
+  )
+}
