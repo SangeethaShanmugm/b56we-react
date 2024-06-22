@@ -6,13 +6,13 @@
 }
 
 .restaurant-card {
-  width: 200px;
-  height: 411px;
+  width: 250px;
+  height: 100%;
   padding: 5px;
 }
 
 .restaurant-poster {
-  width: 200px;
+  width: 250px;
   height: 230px;
   object-fit: cover;
 }
@@ -31,4 +31,11 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.restaurant-align {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
 }

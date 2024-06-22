@@ -1,7 +1,11 @@
 import { Counter } from "./Counter";
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-
+import Button from '@mui/material/Button';
+import InfoIcon from '@mui/icons-material/Info';
+import IconButton from "@mui/material/IconButton";
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 export function Restaurant({ restaurantData, id }) {
   console.log(restaurantData);
   const [show, setShow] = useState(true)
@@ -22,11 +26,27 @@ export function Restaurant({ restaurantData, id }) {
   return (
     <div className="restaurant-card">
       <img className="restaurant-poster" src={restaurantData.restaurant_thumb} alt={restaurantData.restaurant_name} />
-      <h3 className="restaurant-name">{restaurantData.restaurant_name} - {id}</h3>
+      <div className="restaurant-align">
+        <h3 className="restaurant-name">{restaurantData.restaurant_name} - {id}</h3>
 
-      <button onClick={() => setShow(!show)}>Toggle description</button>
+        <IconButton
+          color="primary"
+          aria-label="toggleBtn"
+          onClick={() => setShow(!show)}
+        >
+          {show ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+        </IconButton>
 
-      <button onClick={() => navigate(`/restaurantList/${id}`)}>Info</button>
+
+        <IconButton
+          color="primary"
+          aria-label="infoBtn"
+          onClick={() => navigate(`/restaurantList/${id}`)}
+        >
+          <InfoIcon />
+        </IconButton>
+      </div>
+
 
       {/* <p style={AddressStyle}>Address - {restaurantData.address}</p> */}
       {show ? <p>Address - {restaurantData.address}</p> : ""}
@@ -34,7 +54,9 @@ export function Restaurant({ restaurantData, id }) {
       <p style={styles}>Rating: ⭐{restaurantData.average_rating} {restaurantData.rating_text}</p>
       <div className="style-card">
         <p>Cost: Rs {restaurantData.cost}/-</p>
-        <button>Add to Cart</button>
+        <Button variant="contained" color="success" size="small">Add to Cart</Button>
+
+
       </div>
       <Counter />
     </div>

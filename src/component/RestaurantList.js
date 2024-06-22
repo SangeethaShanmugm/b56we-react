@@ -1,50 +1,78 @@
 import { useState } from "react";
 import INITIAL_RESTAURANT_DATA from "../Data/restaurant.json";
 import { Restaurant } from "./Restaurant";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 export function RestaurantList() {
   const [restaurantData, setRestaurantData] = useState(INITIAL_RESTAURANT_DATA);
   console.log(restaurantData);
 
-  const [name, setName] = useState("Empire");
+  const [name, setName] = useState("Empire restaurant");
   const [poster, setPoster] = useState(
-    "https://b.zmtcdn.com/data/pictures/7/55397/fb83f44f6bbbdd08809b95f8fb6bdb98.jpg"
+    "https://b.zmtcdn.com/data/pictures/chains/6/120976/517f929243a8a987437661453a5b45e0_featured_v2.jpg"
   );
-  const [address, setAddress] = useState("2");
+  const [address, setAddress] = useState("street 2");
   const [rating, setRating] = useState("3");
-  const [rating_text, setRating_Text] = useState("4");
-  const [cost, setCost] = useState("5");
+  const [rating_text, setRating_Text] = useState("Good");
+  const [cost, setCost] = useState("500");
 
   return (
     <>
       {/* Add restaurant */}
       <div className="add-restaurant-form">
-        <input
-          type="text"
+        <TextField
+          id="outlined-basic"
+          label="Restaurant Name"
+          variant="outlined"
           value={name}
-          onChange={(event) => setName(event.target.value)} />
-        <input
-          type="text"
+          onChange={(event) => setName(event.target.value)}
+        />
+
+        <TextField
+          id="outlined-basic"
+          label="Poster"
+          variant="outlined"
           value={poster}
-          onChange={(event) => setPoster(event.target.value)} />
-        <input
-          type="text"
+          onChange={(event) => setPoster(event.target.value)}
+        />
+
+        <TextField
+          id="outlined-basic"
+          label="Address"
+          variant="outlined"
           value={address}
-          onChange={(event) => setAddress(event.target.value)} />
-        <input
-          type="text"
+          onChange={(event) => setAddress(event.target.value)}
+        />
+
+        <TextField
+          id="outlined-basic"
+          label="Poster"
+          variant="outlined"
           value={rating}
-          onChange={(event) => setRating(event.target.value)} />
-        <input
-          type="text"
+          onChange={(event) => setRating(event.target.value)}
+        />
+
+        <TextField
+          id="outlined-basic"
+          label="Rating_text"
+          variant="outlined"
           value={rating_text}
-          onChange={(event) => setRating_Text(event.target.value)} />
-        <input
-          type="text"
+          onChange={(event) => setRating_Text(event.target.value)}
+        />
+
+        <TextField
+          id="outlined-basic"
+          label="Cost"
+          variant="outlined"
           value={cost}
-          onChange={(event) => setCost(event.target.value)} />
+          onChange={(event) => setCost(event.target.value)}
+        />
+
         {/* copy restaurantData and new restaurant */}
-        <button
+
+        <Button
+          variant="contained"
           onClick={() => {
             const newRestaurant = {
               name,
@@ -58,7 +86,8 @@ export function RestaurantList() {
           }}
         >
           Add Restaurant
-        </button>
+        </Button>
+
       </div>
       <div className="restaurant-list">
         {restaurantData.map((rest_data, index) => (
