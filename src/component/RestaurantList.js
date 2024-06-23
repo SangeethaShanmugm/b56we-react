@@ -4,9 +4,7 @@ import { Restaurant } from "./Restaurant";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
-export function RestaurantList() {
-  const [restaurantData, setRestaurantData] = useState(INITIAL_RESTAURANT_DATA);
-  console.log(restaurantData);
+export function RestaurantList({ restaurantData, setRestaurantData }) {
 
   const [name, setName] = useState("Empire restaurant");
   const [poster, setPoster] = useState(

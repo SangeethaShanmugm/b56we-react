@@ -53,3 +53,28 @@ setState => function
       pic: "https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg",
     },
   ];     
+
+
+
+RestaurantList(Data)  -> Restaurant (Data) ->  Counter (Data)
+                -> Menu(Data)
+
+
+ React flow in one direction || Pass from parent to child ✅
+ // ❌ from child to parent               
+
+
+
+                    App (restaurantData, setRestaurantData)(🗻)
+
+
+
+  RestaurantList(🌊)             RestaurantDetail(🌊) 
+
+
+
+  Context API
+  ----------------
+
+  1. Lifting state up -> Parent to child
+  2. Props drilling  -> pass data from parent to nested child
