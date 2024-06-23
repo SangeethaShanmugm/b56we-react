@@ -12,6 +12,11 @@ import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from "@mui/material/Button";
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import ExampleContext from "./context/LiftingStateUp/ExampleContext";
+import PropsDrillingExample from "./context/PropsDrilling/PropsDrillingExample";
+
 
 export default function App() {
   //JS starts
@@ -45,7 +50,11 @@ export default function App() {
             <Button color="inherit" onClick={() => navigate("/")}>Home</Button>
             <Button color="inherit" onClick={() => navigate("/restaurantList")}>RestaurantList</Button>
             <Button color="inherit" onClick={() => navigate("/add-color")}>Add Color</Button>
-            <Button color="inherit" onClick={() => setMode(mode === "light" ? "dark" : "light")}>
+            <Button color="inherit" onClick={() => navigate("/context")}>Context</Button>
+            <Button color="inherit" onClick={() => navigate("/props-drilling")}>Props Drilling</Button>
+            <Button color="inherit" onClick={() => setMode(mode === "light" ? "dark" : "light")}
+              startIcon={mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+            >
               {mode === "light" ? "dark" : "light"} Mode</Button>
             {/* <nav>
               <ul>
@@ -64,6 +73,8 @@ export default function App() {
 
 
           <Route path="/add-color" element={<AddColor />} />
+          <Route path="/context" element={<ExampleContext />} />
+          <Route path="/props-drilling" element={<PropsDrillingExample />} />
         </Routes>
       </div>
 
