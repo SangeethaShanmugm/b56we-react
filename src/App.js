@@ -16,6 +16,8 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import ExampleContext from "./context/LiftingStateUp/ExampleContext";
 import PropsDrillingExample from "./context/PropsDrilling/PropsDrillingExample";
+import { Ref } from "./Hooks/Ref";
+import { Reducer } from "./Hooks/Reducer";
 
 
 export default function App() {
@@ -52,6 +54,8 @@ export default function App() {
             <Button color="inherit" onClick={() => navigate("/add-color")}>Add Color</Button>
             <Button color="inherit" onClick={() => navigate("/context")}>Context</Button>
             <Button color="inherit" onClick={() => navigate("/props-drilling")}>Props Drilling</Button>
+            <Button color="inherit" onClick={() => navigate("/ref")}>Ref</Button>
+            <Button color="inherit" onClick={() => navigate("/reducer")}>Reducer</Button>
             <Button color="inherit" onClick={() => setMode(mode === "light" ? "dark" : "light")}
               startIcon={mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
             >
@@ -75,6 +79,8 @@ export default function App() {
           <Route path="/add-color" element={<AddColor />} />
           <Route path="/context" element={<ExampleContext />} />
           <Route path="/props-drilling" element={<PropsDrillingExample />} />
+          <Route path="/ref" element={<Ref />} />
+          <Route path="/reducer" element={<Reducer />} />
         </Routes>
       </div>
 
