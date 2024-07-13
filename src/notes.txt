@@ -78,3 +78,63 @@ RestaurantList(Data)  -> Restaurant (Data) ->  Counter (Data)
 
   1. Lifting state up -> Parent to child
   2. Props drilling  -> pass data from parent to nested child
+
+
+Redux
+-------------
+
+
+redux  => state management tool -> complex
+
+Types
+------
+
+1. redux
+2. redux-toolkit(reducer+action)
+3. redux-persist
+4. redux-thunk
+5. redux-saga
+
+Packages
+----------
+
+
+redux -> enable redux architecture(core library)
+react-redux -> connect react components to redux store
+redux-toolkit -> maintainability, organized
+
+redux terminology
+--------------------
+
+store -> manage all the states -> global object
+action  -> CRUD operation
+reducer -> what to add  => functionality -> current state and action types
+dispatch -> get updated state
+
+redux-toolkit terminology
+-----------------------------
+
+reducer + action => createSlice(method)
+setup redux store => configureStore(pass reducer, combine reducer)
+
+steps
+------
+1. Define the store ->  configureStore()
+2. Define the reducer + action => createSlice(method)
+3. select(state) => useSelector && select(action) => useDispatch
+
+
+Benefits
+-----------
+
+1. centralized state management => store => complex
+2. get updated state
+3. debug => redux devTool chrome extension
+4. performance
+
+
+reducer => define state 
+||
+store
+||
+provider => index.js => App(core comp) 
