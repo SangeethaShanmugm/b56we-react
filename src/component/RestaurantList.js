@@ -88,8 +88,8 @@ export function RestaurantList({ restaurantData, setRestaurantData }) {
 
       </div>
       <div className="restaurant-list">
-        {restaurantData.map((rest_data, index) => (
-          <Restaurant key={index} restaurantData={rest_data} id={index} />
+        {restaurantData.map((rest_data) => (
+          <Restaurant key={rest_data.restaurant_id} restaurantData={rest_data} id={rest_data.restaurant_id} />
         ))}
       </div>
     </>

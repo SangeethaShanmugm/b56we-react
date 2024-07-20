@@ -4,7 +4,7 @@ import { AddColor } from "./component/AddColor";
 import { Routes, Route, Link, Navigate, useNavigate } from "react-router-dom";
 import { RestaurantList } from "./component/RestaurantList";
 import { Home } from "./component/Home";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import INITIAL_RESTAURANT_DATA from "./Data/restaurant.json";
 import { RestaurantDetail } from "./component/RestaurantDetail";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -19,17 +19,29 @@ import PropsDrillingExample from "./context/PropsDrilling/PropsDrillingExample";
 import { Ref } from "./Hooks/Ref";
 import { Reducer } from "./Hooks/Reducer";
 import Redux from "./redux/Redux";
+import LifeCycleA from "./class/LifeCycleA";
+import Tictactoe from "./Tictactoe";
 
 
 export default function App() {
   //JS starts
 
   //Lifting the state up -> Lifted from child to parent
-  const [restaurantData, setRestaurantData] = useState(INITIAL_RESTAURANT_DATA);
+  const [restaurantData, setRestaurantData] = useState([]);
   const [mode, setMode] = useState("light")
   const navigate = useNavigate()
 
-  console.log(restaurantData);
+  // console.log(restaurantData);
+  useEffect(() => {
+    fetch("https://659e6ba547ae28b0bd35caec.mockapi.io/restaurant")
+      .then((res) => res.json())
+      .then((data) => setRestaurantData(data))
+  }, [])
+
+
+
+
+
 
   //1. Creating - createContext ✅
   //2. Publisher -  provider - context.Provider ✅
@@ -58,7 +70,8 @@ export default function App() {
             <Button color="inherit" onClick={() => navigate("/ref")}>Ref</Button>
             <Button color="inherit" onClick={() => navigate("/reducer")}>Reducer</Button>
             <Button color="inherit" onClick={() => navigate("/redux")}>Redux</Button>
-
+            <Button color="inherit" onClick={() => navigate("/class")}>Class</Button>
+            <Button color="inherit" onClick={() => navigate("/tictactoe")}>TicTacToe</Button>
             <Button color="inherit" onClick={() => setMode(mode === "light" ? "dark" : "light")}
               startIcon={mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
             >
@@ -85,6 +98,8 @@ export default function App() {
           <Route path="/ref" element={<Ref />} />
           <Route path="/reducer" element={<Reducer />} />
           <Route path="/redux" element={<Redux />} />
+          <Route path="/class" element={<LifeCycleA />} />
+          <Route path="/tictactoe" element={<Tictactoe />} />
         </Routes>
       </div>
 

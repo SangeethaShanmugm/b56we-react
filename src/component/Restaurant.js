@@ -9,7 +9,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
 export function Restaurant({ restaurantData, id }) {
-  console.log(restaurantData);
+  // console.log(restaurantData);
   const [show, setShow] = useState(true)
   const navigate = useNavigate()
 
